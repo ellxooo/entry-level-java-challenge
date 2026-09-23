@@ -17,11 +17,11 @@ import org.springframework.stereotype.Service;
 public class EmployeeServiceImplementation implements EmployeeService {
 
     // NOTE: HashMap is not thread-safe. Would use ConcurrentHashMap instead in
-    // a multi-threaded environment.
+    // a multi-threaded environment to handle multiple requests simultaneously.
     private final Map<UUID, Employee> employeeStore = new HashMap<>();
     /**
      *
-     * @return every Employee that is currently in the store.
+     * @return every Employee.
      */
     public List<Employee> getAllEmployees() {
         return new ArrayList<>(employeeStore.values());
