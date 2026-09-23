@@ -18,13 +18,13 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
     // NOTE: HashMap is not thread-safe. Would use ConcurrentHashMap instead in
     // a multi-threaded environment to handle multiple requests simultaneously.
-    private final Map<UUID, Employee> employeeStore = new HashMap<>();
+    private final Map<UUID, Employee> employeeBusiness = new HashMap<>();
     /**
      *
-     * @return every Employee.
+     * @return every Employee stored in employeeBusiness.
      */
     public List<Employee> getAllEmployees() {
-        return new ArrayList<>(employeeStore.values());
+        return new ArrayList<>(employeeBusiness.values());
     }
 
     /**
@@ -33,7 +33,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
      * @return the matching Employee. Return null if none exists.
      */
     public Employee getEmployeeByUuid(UUID uuid) {
-        return employeeStore.get(uuid);
+        return employeeBusiness.get(uuid);
     }
 
     /**
@@ -44,7 +44,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
     public Employee createEmployee(Employee employee) {
         UUID uuid = UUID.randomUUID();
         employee.setUuid(uuid);
-        employeeStore.put(uuid, employee);
+        employeeBusiness.put(uuid, employee);
         return employee;
     }
 }

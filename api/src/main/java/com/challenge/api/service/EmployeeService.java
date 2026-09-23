@@ -11,7 +11,7 @@ import java.util.UUID;
 public interface EmployeeService {
 
     /**
-     * @return every Employee that is currently in the store.
+     * @return every Employee that is currently in the business.
      */
     List<Employee> getAllEmployees();
 
